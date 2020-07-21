@@ -1,0 +1,76 @@
+﻿@using uNews.ViewModels
+@model List<UserAdminViewModel>
+
+@{
+    ViewBag.Title = "LivesNews - админ панель";
+}
+
+<link rel="stylesheet" href="~/css/indexAdmin.css" asp-append-version="true" />
+
+<div class="container" id="admin-page-title">
+    <h1>Админ панель</h1>
+</div>
+
+
+<div class="container" id="search-container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Всего: <span id="count">@Model.Count</span></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 col-sm-8 col-md-9 col-lg-10">
+            <input id="search" class="form-control mr-sm-2" type="search" placeholder="Найти" aria-label="Search">
+        </div>
+        <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+            <select class="form-control" id="fields-select">
+                <option value="all">Все</option>
+                <option value="id">Id</option>
+                <option value="email">Email</option>
+                <option value="date">Дата регистрации</option>
+                <option value="lock">Забанен</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Email</th>
+                <th scope="col">Дата регистрации</th>
+                <th scope="col">Забанен</th>
+                <th scope="col">Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserAdminViewModel user in Model)
+            {
+                <tr class="rows">
+                    <th class="one-row id" scope="row">@user.Id</th>
+                    <td class="one-row email">@user.Email</td>
+                    <td class="one-row date">@user.RegistrationDate</td>
+                    <td class="one-row lock">@user.IsLocked</td>
+                    <td>
+                        @if (!user.IsLocked)
+                        {
+                            <button id="@user.Id" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2 lock-btn" role="button" aria-pressed="true">Забанить</button>
+                        }
+                        else
+                        {
+                            <button id="@user.Id" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2 unlock-btn" role="button" aria-pressed="true">Разбанить</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container" id="empty">
+
+</div>
+
+<script type="text/javascript" src="~/js/lockUnlockAdmin.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/searchAdmin.js" asp-append-version="true"></script>

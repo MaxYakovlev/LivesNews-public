@@ -1,0 +1,97 @@
+﻿@using uNews.ViewModels
+@model OneNewsViewModel
+
+@{
+    ViewBag.Title = "LivesNews - " + Model.Title;
+}
+
+<meta name="description" content="@ViewBag.Title" />
+
+<link rel="stylesheet" href="~/css/oneNews.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+
+<div class="container" id="main-one-news">
+    <div class="row">
+        <div class="col-12" id="time-category">
+            <p class="time">@Model.Date</p>
+            <p><i><strong>@Model.Category</strong></i></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h2>@Model.Title</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            @if (Model.Description != null)
+            {
+                <p><i>@Model.Description</i></p>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            @if (Model.ImageLink != null)
+            {
+                <img class="card-img-top" id="main-image" src="@Model.ImageLink" />
+            }
+        </div>
+    </div>
+
+    @foreach (var item in Model.HtmlElements)
+    {
+        <div class="row">
+            <div class="col-12">
+                @if (item.Name == "p")
+                {
+                    <p class="text-paragraph">@item.Text</p>
+                }
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                @if (item.Name == "h2")
+                {
+                    <h2 class="text-subtitle">@item.Text</h2>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                @if (item.Name == "b")
+                {
+                    <b class="text-subtitle">@item.Text</b>
+                }
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-12">
+            @if (Model.Author != null && Model.Author != "")
+            {
+                <p><strong>Автор:</strong> @Model.Author</p>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p><strong>Источник:</strong> <i><a target="_blank" href="@Model.Link">Ведомости</a></i></p>
+
+        </div>
+    </div>
+</div>
+<div class="container" id="empty">
+
+</div>
+
+<script type="text/javascript" src="~/js/correctDatetime.js" asp-append-version="true"></script>
+

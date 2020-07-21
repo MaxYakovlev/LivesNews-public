@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="~/images/logo32.png" type="image/x-icon">
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Keywords" content="Новости, Последние новости, Новости сегодня, Все новости, Статьи, Курс доллара, Курс евро, Валюта, Курсы валют">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand" asp-controller="News" asp-action="Index">
+                    <img src="~/images/logo48.png" width="48" height="48" alt="logo">
+                    <h3>LivesNews</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto"></ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("admin"))
+                        {
+                            <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Админ</a>
+                        }
+                        <a asp-controller="News" asp-action="SavedNews" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">К сохранненым</a>
+                        <a asp-controller="Account" asp-action="SignOut" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Выйти</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Регистрация</a>
+                    }
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="copyright">© 2020 Copyright: Maxim Yakovlev</div>
+                <div class="col-12" id="social">
+                    <a href="https://www.instagram.com/maxoyyn/" target="_blank" title="instagram">
+                        <img src="~/images/instagram48.png" />
+                    </a>
+                    <a href="https://vk.com/maxoyyn" target="_blank" title="vkontakte">
+                        <img src="~/images/vk48.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

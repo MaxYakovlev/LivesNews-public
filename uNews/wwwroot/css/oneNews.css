@@ -1,0 +1,25 @@
+﻿#main-one-news {
+    margin-top: 60px;
+    max-width: 765px;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+.text-paragraph, b {
+    font-size: 20px;
+    font-family: 'Lora', 'Playfair Display', serif;
+}
+
+.text-paragraph:first-child {
+    margin-top: 22px;
+}
+
+#time-category{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#empty{
+    height: 60px;
+}

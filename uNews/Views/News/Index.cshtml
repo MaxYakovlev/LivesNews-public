@@ -1,0 +1,350 @@
+﻿@using uNews.ViewModels;
+@model NewsCurrenciesViewModel;
+
+@{ ViewBag.Title = $"LivesNews - {@ViewBag.Category}"; }
+
+<meta name="description" content="@ViewBag.Title. Российские и международные новости и события в сфере политики, экономики, науки и техники, культуры, спорта. Курсы валют: доллар, евро и др." />
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/indexNews.css" asp-append-version="true" />
+
+<div class="container" id="news-category">
+    <h1>@ViewBag.Category</h1>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveModalLabel">Сохранено</h5>
+                <div class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chat-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div id="currencies-container">
+                <div id="currency-title">
+                    <h4>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z" />
+                            <path d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                        </svg>
+                        <strong>Валюта</strong>
+                    </h4>
+                    <svg id="unroll-currency" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    </svg>
+                    <svg id="rollup-currency" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg>
+                </div>
+                <div id="currencies">
+                    @foreach (var item in Model.TopCurrencies)
+                    {
+                        <div class="currency">
+                            <div class="currency-name"><b>@item.Name</b></div>
+                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+                        </div>
+                    }
+                    @foreach (var item in Model.CurrencyItems)
+                    {
+                        <div class="currency">
+                            <div class="currency-name"><b>@item.Name</b></div>
+                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div id="categories">
+                <div id="categories-title">
+                    <h4>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list-nested" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                        <strong>Категории</strong>
+                    </h4>
+                    <svg id="unroll-categories" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    </svg>
+                    <svg id="rollup-categories" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg>
+                </div>
+                <ul class="nav flex-column">
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-category="Все новости">Все новости</a>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/library/characters" asp-route-category="Действующие лица">Действующие лица</a>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/library/investigations" asp-route-category="Расследования">Расследования</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business" asp-route-category="Бизнес">Бизнес</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/energy" asp-route-category="ТЭК">ТЭК</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/industry" asp-route-category="Промышленность">Промышленность</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/transport" asp-route-category="Транспорт">Транспорт</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/agriculture" asp-route-category="Агропром">Агропром</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/retail" asp-route-category="Торговля и услуги">Торговля и услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/sport" asp-route-category="Спортивный бизнес">Спортивный бизнес</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics" asp-route-category="Экономика">Экономика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/macro" asp-route-category="Макроэкономика и бюджет">Макроэкономика и бюджет</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/state_investments" asp-route-category="Госинвестиции и проекты">Госинвестиции и проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/global" asp-route-category="Мировая экономика">Мировая экономика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/taxes" asp-route-category="Налоги и сборы">Налоги и сборы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/regulations" asp-route-category="Правила">Правила</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance" asp-route-category="Финансы">Финансы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/banks" asp-route-category="Банки">Банки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/markets" asp-route-category="Рынки">Рынки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/players" asp-route-category="Профучастники">Профучастники</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/insurance" asp-route-category="Страхование">Страхование</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/personal_finance" asp-route-category="Персональные финансы">Персональные финансы</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion" asp-route-category="Мнения">Мнения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/details" asp-route-category="Детали">Детали</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/analytics" asp-route-category="Аналитика">Аналитика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/editorial" asp-route-category="От редакции">От редакции</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics" asp-route-category="Политика">Политика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/official" asp-route-category="Власть">Власть</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/democracy" asp-route-category="Демократия">Демократия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/international" asp-route-category="Международные отношения">Международные отношения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/security_law" asp-route-category="Безопасность и право">Безопасность и право</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/social" asp-route-category="Социальная политика">Социальная политика</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/foreign" asp-route-category="Международная жизнь">Международная жизнь</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology" asp-route-category="Технологии">Технологии</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/telecom" asp-route-category="Телекоммуникации">Телекоммуникации</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/internet" asp-route-category="Интернет и digital">Интернет и digital</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/media" asp-route-category="Медиа">Медиа</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/it_business" asp-route-category="ИТ-бизнес">ИТ-бизнес</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/personal_technologies" asp-route-category="Персональные технологии">Персональные технологии</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty" asp-route-category="Недвижимость">Недвижимость</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-route-url="/rubric/realty/housing" asp-route-category="Жилая недвижимость">Жилая недвижимлсть</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Index" asp-route-url="/rubric/realty/commercial_property" asp-route-category="Коммерческая недвижимость">Коммерческая недвижимость</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/infrastructure" asp-route-category="Стройки и инфрасткруктура">Стройки и инфраструктура</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/architecture" asp-route-category="Архитектура и дизайн">Архитектура и дизайн</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/districts" asp-route-category="Место для жизни">Место для жизни</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto" asp-route-category="Авто">Авто</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/auto_industry" asp-route-category="Автомобильна промышленность">Автомобильная промышленность</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/cars" asp-route-category="Легковые автомобили">Легковые автомобили</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/commercial_vehicles" asp-route-category="Коммерческие автомобили">Коммерческие автомобили</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/car_design" asp-route-category="Дизайн и технологии">Дизайн и технологии</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/test_drive" asp-route-category="Тест-драйвы">Тест-драйвы</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management" asp-route-category="Менеджмент">Менеджмент</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/career" asp-route-category="Карьера">Карьера</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/management" asp-route-category="Управление">Управление</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/compensation" asp-route-category="Зарплаты и занятость">Зарплаты и занятость</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/entrepreneurship" asp-route-category="Предпринимательство">Предпринимательство</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/education" asp-route-category="Бизнес-образование">Бизнес-образование</a>
+                    </li>
+
+                    <li class="nav-item main-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle" asp-route-category="Стиль жизни">Стиль жизни</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/leisure" asp-route-category="Досуг">Досуг</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/culture" asp-route-category="Культура">Культура</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/luxury" asp-route-category="Люкс">Люкс</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/interview" asp-route-category="Интервью">Интервью</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/lifeline" asp-route-category="Линии жизни">Линии жизни</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-9" id="news">
+            <svg id="up" width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path fill-rule="evenodd" d="M4.646 8.354a.5.5 0 0 0 .708 0L8 5.707l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z" />
+                <path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5z" />
+            </svg>
+            <div class="container" id="search-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 id="count">Всего: @Model.News.Count</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Поиск по заголовку" aria-label="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="news">
+                <div class="row">
+                    @foreach (var news in Model.News)
+                    {
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="form-text text-muted time">@news.PublicationDate</p>
+                                    <p class="category"><i>@news.Category</i></p>
+                                    @if (@news.ImageLink != null)
+                                    {
+                                        <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">}
+                                        <h5 class="card-title"><strong>@news.Title</strong></h5>
+                                        @if (news.Description != null)
+                                        {
+                                            <p class="card-text">@news.Description</p>}
+                                        @if (news.Author != "" && news.Author != null)
+                                        {
+                                            <p class="author"><i>Автор: @news.Author</i></p>}
+                                            <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
+                                            <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
+                                            <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
+                                </div>
+                            </div>
+                        </div>          
+                     }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/js/correctDatetime.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/categories.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/scrollToStart.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/search.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/saveOneNews.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/currencies.js" asp-append-version="true"></script>

@@ -1,0 +1,20 @@
+﻿#admin-page-title {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#content, #search-container {
+    margin-top: 30px;
+}
+
+#content {
+    overflow-x: auto;
+}
+
+#filter-container{
+    margin-top: 15px;
+}
+
+#empty {
+    height: 60px;
+}
