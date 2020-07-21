@@ -64,9 +64,9 @@ namespace uNews
                         context.Response.ContentType = "text/html;charset=utf-8";
 
                         await context.Response.WriteAsync("<html lang=\"en\"><body style=\"text-align: center;\">\r\n");
-                        await context.Response.WriteAsync("<h1>Страница временно недоступна(</h1><br><br>\r\n");
+                        await context.Response.WriteAsync("<h1>This page is unavailable now(</h1><br>\r\n");
 
-                        await context.Response.WriteAsync("<a href=\"/\"><h3>На главную</h3></a><br>\r\n");
+                        await context.Response.WriteAsync("<a href=\"/\"><h3>Back to site</h3></a><br>\r\n");
                         await context.Response.WriteAsync("</body></html>\r\n");
                         await context.Response.WriteAsync(new string(' ', 512)); // IE padding
                     });
