@@ -28,7 +28,7 @@ namespace uNews.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<User> users = context.Users.Where(u => u.RoleId != 1).ToList();
+            List<User> users = context.Users.ToList();
 
             List<UserAdminViewModel> usersAdminViewModel = mapper.Map<List<UserAdminViewModel>>(users);
 
