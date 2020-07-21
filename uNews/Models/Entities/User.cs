@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace uNews.Models.Entities
 {
@@ -13,6 +14,7 @@ namespace uNews.Models.Entities
 
         public DateTime RegistrationDate { get; set; }
 
+        [Column(TypeName = "boolean")]
         public bool IsLocked { get; set; }
 
         #region Связь с SavedNews

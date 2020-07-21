@@ -11,6 +11,8 @@ using uNews.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using uNews.Currency;
+using uNews.Security;
+using System;
 
 namespace uNews.Controllers
 {
