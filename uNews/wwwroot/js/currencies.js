@@ -8,7 +8,6 @@
         // код для мобильных устройств
         currencies.style.height = "180px";
         unRoll.style.display = "block";
-        currencies.style.height = "auto";
     }
 
     currenciesTitle.addEventListener("click", (e) => {
@@ -16,7 +15,17 @@
 
         // раскрыть категории
         if (rollUp.style.display !== "block") {
-            currencies.style.height = "auto";
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // код для мобильных устройств
+                unRoll.style.display = "block";
+                currencies.style.height = "2270px";
+            }
+            else if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
+                currencies.style.height = "2620px";
+            else if (document.documentElement.clientWidth <= 974)
+                currencies.style.height = "2240px";
+            else currencies.style.height = "2270px";
+
             rollUp.style.display = "block";
             unRoll.style.display = "none";
         }
@@ -26,36 +35,10 @@
                 currencies.style.height = "210px";
             else currencies.style.height = "180px";
 
-            rollUp.style.display = "none";
-            unRoll.style.display = "block";
+            setTimeout(() => {
+                rollUp.style.display = "none";
+                unRoll.style.display = "block";
+            }, 600);
         }
     });
-
-    let resizeCurrencies = () => {
-        // добавить иконку раскрытия категорий
-        if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974) {
-            currencies.style.height = "210px";
-            rollUp.style.display = "none";
-            unRoll.style.display = "block";
-        }
-        else if (document.documentElement.clientWidth <= 974) {
-            currencies.style.height = "180px";
-            rollUp.style.display = "none";
-            unRoll.style.display = "block";
-        }
-        // скрыть иконки раскрытия и скрытия категория
-        else {
-            currencies.style.height = "180px";
-            rollUp.style.display = "none";
-        }
-    }
-
-    resizeCurrencies();
-
-    window.addEventListener("resize", (e) => {
-        e.preventDefault();
-
-        resizeCurrencies();
-    });
-
 });
