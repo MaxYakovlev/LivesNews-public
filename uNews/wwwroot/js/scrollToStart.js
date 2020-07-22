@@ -1,8 +1,9 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
     let upBtn = document.getElementById("up");
+
     let upVisibility = (height) => {
-        if (window.pageYOffset > height) upBtn.style.visibility = "visible";
-        else upBtn.style.visibility = "hidden";
+        if (window.pageYOffset > height) upBtn.style.display = "block";
+        else upBtn.style.display = "none";
     }
 
     upVisibility(500);

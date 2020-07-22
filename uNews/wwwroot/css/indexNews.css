@@ -85,10 +85,10 @@ ul a:hover{
 }
 
 #up {
+    display: none;
     position: fixed;
     z-index: 2;
     cursor: pointer;
-    visibility: hidden;
     opacity: .95;
     right: 15px;
     bottom: 15px;
