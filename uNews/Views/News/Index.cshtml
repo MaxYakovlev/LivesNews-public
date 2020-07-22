@@ -291,12 +291,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-lg-9" id="news">
-            <svg id="up" width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path fill-rule="evenodd" d="M4.646 8.354a.5.5 0 0 0 .708 0L8 5.707l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z" />
-                <path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5z" />
-            </svg>
+        <div class="col-lg-9" id="news">            
             <div class="container" id="search-container">
                 <div class="row">
                     <div class="col-12">
@@ -313,27 +308,31 @@
                 <div class="row">
                     @foreach (var news in Model.News)
                     {
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <p class="form-text text-muted time">@news.PublicationDate</p>
-                    <p class="category"><i>@news.Category</i></p>
-                    @if (@news.ImageLink != null)
-                    {
-    <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">}
-                    <h5 class="card-title"><strong>@news.Title</strong></h5>
-                    @if (news.Description != null)
-                    {
-    <p class="card-text">@news.Description</p>}
-                    @if (news.Author != "" && news.Author != null)
-                    {
-    <p class="author"><i>Автор: @news.Author</i></p>}
-                    <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
-                    <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
-                    <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
-                </div>
-            </div>
-        </div>}
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="form-text text-muted time">@news.PublicationDate</p>
+                                    <p class="category"><i>@news.Category</i></p>
+                                    @if (@news.ImageLink != null)
+                                    {
+                                        <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">
+                                    }
+                                    <h5 class="card-title"><strong>@news.Title</strong></h5>
+                                    @if (news.Description != null)
+                                    {
+                                        <p class="card-text">@news.Description</p>
+                                    }
+                                    @if (news.Author != "" && news.Author != null)
+                                    {
+                                        <p class="author"><i>Автор: @news.Author</i></p>
+                                    }
+                                    <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
+                                    <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
+                                    <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -342,7 +341,6 @@
 
 <script type="text/javascript" src="~/js/categories.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/correctDatetime.js" asp-append-version="true"></script>
-<script type="text/javascript" src="~/js/scrollToStart.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/search.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/saveOneNews.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/currencies.js" asp-append-version="true"></script>

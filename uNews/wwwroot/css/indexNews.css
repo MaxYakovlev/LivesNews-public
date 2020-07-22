@@ -89,7 +89,9 @@ ul a:hover{
     z-index: 2;
     cursor: pointer;
     visibility: hidden;
-    opacity: .8;
+    opacity: .95;
+    right: 15px;
+    bottom: 15px;
 }
 
 #unroll-categories, #rollup-categories {

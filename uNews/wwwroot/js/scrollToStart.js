@@ -1,38 +1,16 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
-
-    let searchContainer = document.getElementById("search-container");
     let upBtn = document.getElementById("up");
-
-    if (window.pageYOffset > 500) {
-        upBtn.style.visibility = "visible";
-    }
-    else {
-        upBtn.style.visibility = "hidden";
+    let upVisibility = (height) => {
+        if (window.pageYOffset > height) upBtn.style.visibility = "visible";
+        else upBtn.style.visibility = "hidden";
     }
 
-    upBtn.style.marginLeft = searchContainer.clientWidth - 64 + "px";
-
-    if (document.documentElement.clientWidth < 975)
-        upBtn.style.marginTop = document.documentElement.clientHeight - 540 + "px";  
-    else upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";  
-
-    window.addEventListener("resize", () => {
-        upBtn.style.marginLeft = searchContainer.clientWidth - 64 + "px";
-
-        if (document.documentElement.clientWidth < 975)
-            upBtn.style.marginTop = document.documentElement.clientHeight - 540 + "px";
-        else upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";  
-    });
+    upVisibility(500);
 
     window.addEventListener("scroll", (e) => {
         e.preventDefault();
 
-        if (window.pageYOffset > 500) {
-            upBtn.style.visibility = "visible";
-        }
-        else {
-            upBtn.style.visibility = "hidden";
-        }
+        upVisibility(500);
     });
 
     upBtn.addEventListener("click", (e) => {

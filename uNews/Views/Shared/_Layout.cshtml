@@ -12,6 +12,11 @@
     <!--<script data-ad-client="ca-pub-1441444463963883" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
 </head>
 <body>
+    <svg id="up" width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path fill-rule="evenodd" d="M4.646 8.354a.5.5 0 0 0 .708 0L8 5.707l2.646 2.647a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708z" />
+        <path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5z" />
+    </svg>
     <div id="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -27,18 +32,15 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        @if (User.IsInRole("admin"))
-                        {
-                            <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Админ</a>
-                        }
+        @if (User.IsInRole("admin"))
+        {
+<a asp-controller="Admin" asp-action="Index" class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Админ</a>}
                         <a asp-controller="News" asp-action="SavedNews" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">К сохранненым</a>
-                        <a asp-controller="Account" asp-action="SignOut" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Выйти</a>
-                    }
-                    else
-                    {
-                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Вход</a>
-                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Регистрация</a>
-                    }
+                                        <a asp-controller="Account" asp-action="SignOut" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Выйти</a> }
+                                                    else
+                                                    {
+                                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" aria-pressed="true">Вход</a>
+                                                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary my-2 my-sm-0" role="button" aria-pressed="true">Регистрация</a>}
                 </div>
             </nav>
         </div>
@@ -65,5 +67,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/js/scrollToStart.js" asp-append-version="true"></script>
 </body>
 </html>
