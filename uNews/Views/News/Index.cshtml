@@ -318,7 +318,9 @@
                                     <p class="category"><i>@news.Category</i></p>
                                     @if (@news.ImageLink != null)
                                     {
-                                        <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">
+                                        <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
+                                            <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">
+                                        </a>
                                     }
                                     <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
                                         <h5 class="card-title"><strong>@news.Title</strong></h5>
@@ -332,8 +334,7 @@
                                         <p class="author"><i>Автор: @news.Author</i></p>
                                     }
                                     <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
-                                    <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
-                                    <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
+                                    <a type="button" href="#" class="btn btn-outline-success read-later" data-toggle="modal" data-target="#saveModal">Сохранить</a>
                                 </div>
                             </div>
                         </div>
