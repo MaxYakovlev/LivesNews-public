@@ -6,12 +6,12 @@
         else upBtn.style.display = "none";
     }
 
-    upVisibility(500);
+    upVisibility(750);
 
     window.addEventListener("scroll", (e) => {
         e.preventDefault();
 
-        upVisibility(500);
+        upVisibility(750);
     });
 
     upBtn.addEventListener("click", (e) => {

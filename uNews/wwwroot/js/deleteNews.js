@@ -1,5 +1,6 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
     let deleteButtons = document.getElementsByClassName("delete");
+    let upBtn = document.getElementById("up");
 
     for (let i = 0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener("click", async () => {

@@ -45,12 +45,12 @@
             if (response.ok) {
                 setTimeout(() => {
                     $('#saveModal').modal('hide');
-                }, 1000);
+                }, 600);
             }
             else {
                 setTimeout(() => {
                     $('#saveModal').modal('hide');
-                }, 1800);
+                }, 1200);
             }
             
         });

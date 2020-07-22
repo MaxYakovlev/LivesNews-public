@@ -1,0 +1,9 @@
+﻿#up {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    cursor: pointer;
+    opacity: .95;
+    right: 10px;
+    bottom: 15px;
+}
