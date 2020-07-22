@@ -29,8 +29,7 @@
 
 #categories {
     width: 100%;
-    min-height: 50px;
-    max-height: 2620px;
+    height: 50px;
     margin-top: 20px;
     border: 1px solid #dedede;
     color: black;

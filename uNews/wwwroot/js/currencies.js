@@ -4,11 +4,11 @@
     let rollUp = document.getElementById("rollup-currency");
     let unRoll = document.getElementById("unroll-currency");
 
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // код для мобильных устройств
-        currencies.style.height = "180px";
-        unRoll.style.display = "block";
-    }
+    if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
+        currencies.style.height = "210px";
+    else currencies.style.height = "180px";
+
+    unRoll.style.display = "block";
 
     currenciesTitle.addEventListener("click", (e) => {
         e.preventDefault();
@@ -40,5 +40,11 @@
                 unRoll.style.display = "block";
             }, 600);
         }
+    });
+
+    window.addEventListener("resize", () => {
+        if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
+            currencies.style.height = "210px";
+        else currencies.style.height = "180px";
     });
 });
