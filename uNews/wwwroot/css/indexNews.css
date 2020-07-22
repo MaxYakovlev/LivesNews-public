@@ -53,6 +53,21 @@
     height: 40px;
 }
 
+.title-link{
+    text-decoration: none;
+    color: black;
+}
+
+.title-link:link{
+    text-decoration: none;
+    color: black;
+}
+
+.title-link:visited{
+    text-decoration: none;
+    color: black;
+}
+
 ul {
     list-style-type: none;
 }
