@@ -56,16 +56,17 @@
                 <div id="currencies">
                     @foreach (var item in Model.TopCurrencies)
                     {
-        <div class="currency">
-            <div class="currency-name"><b>@item.Name</b></div>
-            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
-        </div>}
+                        <div class="currency">
+                            <div class="currency-name"><b>@item.Name</b></div>
+                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+                        </div>}
                     @foreach (var item in Model.CurrencyItems)
                     {
-        <div class="currency">
-            <div class="currency-name"><b>@item.Name</b></div>
-            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
-        </div>}
+                        <div class="currency">
+                            <div class="currency-name"><b>@item.Name</b></div>
+                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+                        </div>
+                     }
                 </div>
             </div>
             <div id="categories">
@@ -186,7 +187,7 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/security_law" asp-route-category="Безопасность и право">Безопасность и право</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fix-height">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/social" asp-route-category="Социальная политика">Социальная политика</a>
                     </li>
                     <li class="nav-item">
@@ -215,7 +216,7 @@
                     <li class="nav-item main-item">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty" asp-route-category="Недвижимость">Недвижимость</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fix-height">
                         <a class="nav-link" asp-action="Index" asp-route-url="/rubric/realty/housing" asp-route-category="Жилая недвижимость">Жилая недвижимлсть</a>
                     </li>
                     <li class="nav-item">
@@ -224,7 +225,7 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/infrastructure" asp-route-category="Стройки и инфрасткруктура">Стройки и инфраструктура</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fix-height">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/architecture" asp-route-category="Архитектура и дизайн">Архитектура и дизайн</a>
                     </li>
                     <li class="nav-item">
@@ -237,7 +238,7 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/auto_industry" asp-route-category="Автомобильна промышленность">Автомобильная промышленность</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fix-height">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/cars" asp-route-category="Легковые автомобили">Легковые автомобили</a>
                     </li>
                     <li class="nav-item">
@@ -259,7 +260,7 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/management" asp-route-category="Управление">Управление</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item fix-height">
                         <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/compensation" asp-route-category="Зарплаты и занятость">Зарплаты и занятость</a>
                     </li>
                     <li class="nav-item">
