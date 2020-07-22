@@ -33,7 +33,7 @@
             setTimeout(() => {
                 rollUp.style.display = "none";
                 unRoll.style.display = "block";
-            }, 700);
+            }, 300);
         }
     });
 
