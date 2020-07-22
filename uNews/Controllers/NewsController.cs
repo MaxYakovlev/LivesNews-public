@@ -71,7 +71,7 @@ namespace uNews.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveOneNews(OneNews oneNews)
         {
-            if (!User.Identity.IsAuthenticated) return BadRequest(new { Message = "Не сохранено, авторизируйтесь" });
+            if (!User.Identity.IsAuthenticated) return BadRequest(new { Message = "Авторизируйтесь" });
 
             if (ModelState.IsValid)
             {
