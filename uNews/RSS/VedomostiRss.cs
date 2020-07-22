@@ -47,7 +47,7 @@ namespace uNews.RSS
                     }
                 }
 
-                if(!news.Link.Contains("test"))
+                if(!news.Link.Contains("test") && !news.Link.Contains("galleries"))
                     newsList.Add(news);
             }
 

@@ -56,18 +56,16 @@
                 <div id="currencies">
                     @foreach (var item in Model.TopCurrencies)
                     {
-                        <div class="currency">
-                            <div class="currency-name"><b>@item.Name</b></div>
-                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
-                        </div>
-                    }
+        <div class="currency">
+            <div class="currency-name"><b>@item.Name</b></div>
+            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+        </div>}
                     @foreach (var item in Model.CurrencyItems)
                     {
-                        <div class="currency">
-                            <div class="currency-name"><b>@item.Name</b></div>
-                            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
-                        </div>
-                    }
+        <div class="currency">
+            <div class="currency-name"><b>@item.Name</b></div>
+            <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
+        </div>}
                 </div>
             </div>
             <div id="categories">
@@ -314,36 +312,35 @@
                 <div class="row">
                     @foreach (var news in Model.News)
                     {
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="form-text text-muted time">@news.PublicationDate</p>
-                                    <p class="category"><i>@news.Category</i></p>
-                                    @if (@news.ImageLink != null)
-                                    {
-                                        <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">}
-                                        <h5 class="card-title"><strong>@news.Title</strong></h5>
-                                        @if (news.Description != null)
-                                        {
-                                            <p class="card-text">@news.Description</p>}
-                                        @if (news.Author != "" && news.Author != null)
-                                        {
-                                            <p class="author"><i>Автор: @news.Author</i></p>}
-                                            <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
-                                            <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
-                                            <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
-                                </div>
-                            </div>
-                        </div>          
-                     }
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="form-text text-muted time">@news.PublicationDate</p>
+                    <p class="category"><i>@news.Category</i></p>
+                    @if (@news.ImageLink != null)
+                    {
+    <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">}
+                    <h5 class="card-title"><strong>@news.Title</strong></h5>
+                    @if (news.Description != null)
+                    {
+    <p class="card-text">@news.Description</p>}
+                    @if (news.Author != "" && news.Author != null)
+                    {
+    <p class="author"><i>Автор: @news.Author</i></p>}
+                    <p><i>Источник: <a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
+                    <a asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink" class="btn btn-primary read">Читать</a>
+                    <a type="button" href="#" class="btn btn-success read-later" data-toggle="modal" data-target="#saveModal">Прочту позже</a>
+                </div>
+            </div>
+        </div>}
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="~/js/correctDatetime.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/categories.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/correctDatetime.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/scrollToStart.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/search.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/saveOneNews.js" asp-append-version="true"></script>

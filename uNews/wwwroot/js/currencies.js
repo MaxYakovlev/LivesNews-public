@@ -22,7 +22,10 @@
         }
         // свернуть категории
         else {
-            currencies.style.height = "180px";
+            if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
+                currencies.style.height = "210px";
+            else currencies.style.height = "180px";
+
             rollUp.style.display = "none";
             unRoll.style.display = "block";
         }
@@ -30,7 +33,12 @@
 
     let resizeCurrencies = () => {
         // добавить иконку раскрытия категорий
-        if (document.documentElement.clientWidth <= 974) {
+        if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974) {
+            currencies.style.height = "210px";
+            rollUp.style.display = "none";
+            unRoll.style.display = "block";
+        }
+        else if (document.documentElement.clientWidth <= 974) {
             currencies.style.height = "180px";
             rollUp.style.display = "none";
             unRoll.style.display = "block";

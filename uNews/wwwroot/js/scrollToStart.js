@@ -11,11 +11,17 @@
     }
 
     upBtn.style.marginLeft = searchContainer.clientWidth - 64 + "px";
-    upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";
+
+    if (document.documentElement.clientWidth < 975)
+        upBtn.style.marginTop = document.documentElement.clientHeight - 540 + "px";  
+    else upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";  
 
     window.addEventListener("resize", () => {
         upBtn.style.marginLeft = searchContainer.clientWidth - 64 + "px";
-        upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";
+
+        if (document.documentElement.clientWidth < 975)
+            upBtn.style.marginTop = document.documentElement.clientHeight - 540 + "px";
+        else upBtn.style.marginTop = document.documentElement.clientHeight - 320 + "px";  
     });
 
     window.addEventListener("scroll", (e) => {
