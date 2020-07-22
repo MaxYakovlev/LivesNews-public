@@ -68,6 +68,21 @@
     color: black;
 }
 
+.source-link {
+    text-decoration: none;
+    color: black;
+}
+
+.source-link:link {
+    text-decoration: none;
+    color: black;
+}
+
+.source-link:visited {
+    text-decoration: none;
+    color: black;
+}
+
 ul {
     list-style-type: none;
 }
