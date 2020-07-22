@@ -10,9 +10,7 @@
                 method: 'POST'
             });
 
-            if (response.ok) {
-                window.location.reload();
-            }
+            if (response.ok) window.location.reload();
         });
     }
 });
