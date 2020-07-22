@@ -14,18 +14,16 @@
         e.preventDefault();
 
         // раскрыть категории
-        if (rollUp.style.display !== "block") {
+        if (currencies.style.height === "180px" || currencies.style.height === "210px") {
             if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
                 currencies.style.height = "2620px";
             else if (document.documentElement.clientWidth <= 974)
-                currencies.style.height = "2240px";
-            else currencies.style.height = "2270px";
+                currencies.style.height = "2270px";
 
             rollUp.style.display = "block";
             unRoll.style.display = "none";
         }
-        // свернуть категории
-        else {
+        else {  // свернуть категории
             if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
                 currencies.style.height = "210px";
             else currencies.style.height = "180px";
