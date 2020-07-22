@@ -17,6 +17,7 @@
     }
 
     categoriesTitle.addEventListener("click", (e) => {
+        e.preventDefault();
 
         if (document.documentElement.clientWidth <= 974 && rollUp.style.display !== "block") {
             categories.style.height = "2590px";
@@ -34,8 +35,6 @@
                 unRoll.style.display = "block";
             }, 700);
         }
-
-        e.preventDefault();
     });
 
     window.addEventListener("resize", (e) => {

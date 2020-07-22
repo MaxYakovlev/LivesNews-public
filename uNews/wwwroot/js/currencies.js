@@ -37,7 +37,9 @@
         }
     });
 
-    window.addEventListener("resize", () => {
+    window.addEventListener("resize", (e) => {
+        e.preventDefault();
+
         if (document.documentElement.clientWidth <= 1182 && document.documentElement.clientWidth > 974)
             currencies.style.height = "210px";
         else currencies.style.height = "180px";
