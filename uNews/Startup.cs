@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Http;
 using uNews.Currency;
+using System;
 
 namespace uNews
 {
@@ -41,6 +42,8 @@ namespace uNews
                 {
                     options.LoginPath = new PathString("/Account/Login");
                     options.AccessDeniedPath = new PathString("/Account/Login");
+                    options.SlidingExpiration = true;
+                    options.ExpireTimeSpan = TimeSpan.FromDays(3);
                 });
 
             services.AddScoped<VedomostiRss>();
@@ -86,8 +89,7 @@ namespace uNews
             {
                 HttpOnly = HttpOnlyPolicy.Always,
                 MinimumSameSitePolicy = SameSiteMode.None,
-                Secure = CookieSecurePolicy.Always,
-                CheckConsentNeeded = context => true
+                Secure = CookieSecurePolicy.Always
             });
 
             app.UseRouting();
