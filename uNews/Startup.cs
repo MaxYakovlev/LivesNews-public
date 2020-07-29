@@ -37,7 +37,6 @@ namespace uNews
                 {
                     options.LoginPath = new PathString("/Account/Login");
                     options.AccessDeniedPath = new PathString("/Account/Login");
-                    options.ExpireTimeSpan = TimeSpan.FromDays(3);
                 });
 
             services.AddScoped<VedomostiRss>();
