@@ -149,6 +149,7 @@ namespace uNews.Controllers
 
             AuthenticationProperties authenticationProperties = new AuthenticationProperties()
             {
+                AllowRefresh = true,
                 IsPersistent = true,
                 ExpiresUtc = DateTimeOffset.Now.AddDays(3),
                 IssuedUtc = DateTime.Now,
