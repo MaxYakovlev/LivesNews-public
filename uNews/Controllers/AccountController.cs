@@ -82,7 +82,9 @@ namespace uNews.Controllers
 
                     if (resultOfSave > 0)
                     {
-                        await Authenticate(user);
+                        await Authenticate(user, model.RememberMe);
+
+                        return RedirectToAction("Index", "News");
                     }
                     else
                     {
@@ -122,7 +124,9 @@ namespace uNews.Controllers
 
                 if(user != null && !user.IsLocked)
                 {
-                    await Authenticate(user);
+                    await Authenticate(user, model.RememberMe);
+
+                    return RedirectToAction("Index", "News");
                 }
                 else if (user != null && user.IsLocked)
                 {
@@ -137,7 +141,7 @@ namespace uNews.Controllers
             return View(model);
         }
 
-        private async Task Authenticate(User user)
+        private async Task Authenticate(User user, bool rememberMe)
         {
             List<Claim> claims = new List<Claim>()
             {
@@ -147,13 +151,12 @@ namespace uNews.Controllers
 
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
 
+            int days = rememberMe ? 14 : 1;
+
             AuthenticationProperties authenticationProperties = new AuthenticationProperties()
             {
-                AllowRefresh = true,
-                IsPersistent = true,
-                ExpiresUtc = DateTimeOffset.Now.AddDays(3),
-                IssuedUtc = DateTime.Now,
-                RedirectUri = "/news/index"
+                IssuedUtc = DateTime.UtcNow,
+                ExpiresUtc = DateTime.UtcNow.AddDays(days)
             };
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id), authenticationProperties);
