@@ -1,19 +1,17 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
-    let currenciesTitle = document.getElementById("currency-title");
-    let rollUp = document.getElementById("rollup-currency");
-    let unRoll = document.getElementById("unroll-currency");
+﻿let currenciesTitle = document.getElementById("currency-title");
+let rollUpCurrency = document.getElementById("rollup-currency");
+let unRollCurrency = document.getElementById("unroll-currency");
 
-    currenciesTitle.addEventListener("click", (e) => {
-        e.preventDefault();
+currenciesTitle.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        // раскрыть категории
-        if (rollUp.style.display !== "block") {
-            rollUp.style.display = "block";
-            unRoll.style.display = "none";
-        }
-        else {// свернуть категории
-            rollUp.style.display = "none";
-            unRoll.style.display = "block";
-        }
-    });
+    // раскрыть категории
+    if (rollUpCurrency.style.display !== "block") {
+        rollUpCurrency.style.display = "block";
+        unRollCurrency.style.display = "none";
+    }
+    else {// свернуть категории
+        rollUpCurrency.style.display = "none";
+        unRollCurrency.style.display = "block";
+    }
 });

@@ -69,7 +69,7 @@
                             <div class="currency-name"><b>@item.Name</b></div>
                             <div class="exchange-rate"><span class="currency-number">@item.Nominal</span> @item.CharCode - <span class="currency-number">@item.Value</span> РУБ</div>
                         </div>
-                     }
+                    }
                 </div>
             </div>
             <div id="categories">
@@ -92,209 +92,16 @@
                     </svg>
                 </div>
                 <ul class="nav flex-column">
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-category="Все новости">Все новости</a>
-                    </li>
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/library/characters" asp-route-category="Действующие лица">Действующие лица</a>
-                    </li>
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/library/investigations" asp-route-category="Расследования">Расследования</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business" asp-route-category="Бизнес">Бизнес</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/energy" asp-route-category="ТЭК">ТЭК</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/industry" asp-route-category="Промышленность">Промышленность</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/transport" asp-route-category="Транспорт">Транспорт</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/agriculture" asp-route-category="Агропром">Агропром</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/retail" asp-route-category="Торговля и услуги">Торговля и услуги</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/business/sport" asp-route-category="Спортивный бизнес">Спортивный бизнес</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics" asp-route-category="Экономика">Экономика</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/macro" asp-route-category="Макроэкономика и бюджет">Макроэкономика и бюджет</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/state_investments" asp-route-category="Госинвестиции и проекты">Госинвестиции и проекты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/global" asp-route-category="Мировая экономика">Мировая экономика</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/taxes" asp-route-category="Налоги и сборы">Налоги и сборы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/economics/regulations" asp-route-category="Правила">Правила</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance" asp-route-category="Финансы">Финансы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/banks" asp-route-category="Банки">Банки</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/markets" asp-route-category="Рынки">Рынки</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/players" asp-route-category="Профучастники">Профучастники</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/insurance" asp-route-category="Страхование">Страхование</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/finance/personal_finance" asp-route-category="Персональные финансы">Персональные финансы</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion" asp-route-category="Мнения">Мнения</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/details" asp-route-category="Детали">Детали</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/analytics" asp-route-category="Аналитика">Аналитика</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/opinion/editorial" asp-route-category="От редакции">От редакции</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics" asp-route-category="Политика">Политика</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/official" asp-route-category="Власть">Власть</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/democracy" asp-route-category="Демократия">Демократия</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/international" asp-route-category="Международные отношения">Международные отношения</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/security_law" asp-route-category="Безопасность и право">Безопасность и право</a>
-                    </li>
-                    <li class="nav-item fix-height">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/social" asp-route-category="Социальная политика">Социальная политика</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/politics/foreign" asp-route-category="Международная жизнь">Международная жизнь</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology" asp-route-category="Технологии">Технологии</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/telecom" asp-route-category="Телекоммуникации">Телекоммуникации</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/internet" asp-route-category="Интернет и digital">Интернет и digital</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/media" asp-route-category="Медиа">Медиа</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/it_business" asp-route-category="ИТ-бизнес">ИТ-бизнес</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/technology/personal_technologies" asp-route-category="Персональные технологии">Персональные технологии</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty" asp-route-category="Недвижимость">Недвижимость</a>
-                    </li>
-                    <li class="nav-item fix-height">
-                        <a class="nav-link" asp-action="Index" asp-route-url="/rubric/realty/housing" asp-route-category="Жилая недвижимость">Жилая недвижимлсть</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-action="Index" asp-route-url="/rubric/realty/commercial_property" asp-route-category="Коммерческая недвижимость">Коммерческая недвижимость</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/infrastructure" asp-route-category="Стройки и инфрасткруктура">Стройки и инфраструктура</a>
-                    </li>
-                    <li class="nav-item fix-height">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/architecture" asp-route-category="Архитектура и дизайн">Архитектура и дизайн</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/realty/districts" asp-route-category="Место для жизни">Место для жизни</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto" asp-route-category="Авто">Авто</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/auto_industry" asp-route-category="Автомобильна промышленность">Автомобильная промышленность</a>
-                    </li>
-                    <li class="nav-item fix-height">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/cars" asp-route-category="Легковые автомобили">Легковые автомобили</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/commercial_vehicles" asp-route-category="Коммерческие автомобили">Коммерческие автомобили</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/car_design" asp-route-category="Дизайн и технологии">Дизайн и технологии</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/auto/test_drive" asp-route-category="Тест-драйвы">Тест-драйвы</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management" asp-route-category="Менеджмент">Менеджмент</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/career" asp-route-category="Карьера">Карьера</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/management" asp-route-category="Управление">Управление</a>
-                    </li>
-                    <li class="nav-item fix-height">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/compensation" asp-route-category="Зарплаты и занятость">Зарплаты и занятость</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/entrepreneurship" asp-route-category="Предпринимательство">Предпринимательство</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/management/education" asp-route-category="Бизнес-образование">Бизнес-образование</a>
-                    </li>
-
-                    <li class="nav-item main-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle" asp-route-category="Стиль жизни">Стиль жизни</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/leisure" asp-route-category="Досуг">Досуг</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/culture" asp-route-category="Культура">Культура</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/luxury" asp-route-category="Люкс">Люкс</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/interview" asp-route-category="Интервью">Интервью</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="/rubric/lifestyle/lifeline" asp-route-category="Линии жизни">Линии жизни</a>
-                    </li>
+                    @foreach (var item in Model.NewsCategoriesViewModel.newsCategories)
+                    {
+                        <li class="nav-item @item.Item3">
+                            <a class="nav-link" asp-controller="News" asp-action="Index" asp-route-url="@item.Item2" asp-route-category="@item.Item1">@item.Item1</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
-        <div class="col-lg-9" id="news">            
+        <div class="col-lg-9" id="news">
             <div class="container" id="search-container">
                 <div class="row">
                     <div class="col-12">
@@ -311,34 +118,30 @@
                 <div class="row">
                     @foreach (var news in Model.News)
                     {
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="form-text text-muted time">@news.PublicationDate</p>
-                                    <p class="category"><i>@news.Category</i></p>
-                                    @if (@news.ImageLink != null)
-                                    {
-                                        <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
-                                            <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">
-                                        </a>
-                                    }
-                                    <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
-                                        <h5 class="card-title"><strong>@news.Title</strong></h5>
-                                    </a>
-                                    @if (news.Description != null)
-                                    {
-                                        <p class="card-text">@news.Description</p>
-                                    }
-                                    @if (news.Author != "" && news.Author != null)
-                                    {
-                                        <p class="author"><i>Автор: @news.Author</i></p>
-                                    }
-                                    <p><strong>Источник:</strong> <i><a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
-                                    <a type="button" href="#" class="btn btn-outline-success read-later" data-toggle="modal" data-target="#saveModal">Сохранить</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="form-text text-muted time">@news.PublicationDate</p>
+                    <p class="category"><i>@news.Category</i></p>
+                    @if (@news.ImageLink != null)
+                    {
+    <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
+        <img class="card-img-top" src="@news.ImageLink" alt="Card image cap">
+    </a>}
+                    <a class="title-link" asp-controller="News" asp-action="OneNews" asp-route-url="@news.Link" asp-route-title="@news.Title" asp-route-description="@news.Description" asp-route-author="@news.Author" asp-route-category="@news.Category" asp-route-date="@news.PublicationDate" asp-route-imageLink="@news.ImageLink">
+                        <h5 class="card-title"><strong>@news.Title</strong></h5>
+                    </a>
+                    @if (news.Description != null)
+                    {
+    <p class="card-text">@news.Description</p>}
+                    @if (news.Author != "" && news.Author != null)
+                    {
+    <p class="author"><i>Автор: @news.Author</i></p>}
+                    <p><strong>Источник:</strong> <i><a href="@news.Link" target="_blank" class="source-link">Ведомости</a></i></p>
+                    <a type="button" href="#" class="btn btn-outline-success read-later" data-toggle="modal" data-target="#saveModal">Сохранить</a>
+                </div>
+            </div>
+        </div>}
                 </div>
             </div>
         </div>

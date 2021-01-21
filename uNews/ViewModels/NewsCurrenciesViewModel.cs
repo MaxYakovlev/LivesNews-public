@@ -10,5 +10,9 @@ namespace uNews.ViewModels
         public List<CurrencyItem> CurrencyItems { get; set; }
 
         public List<CurrencyItem> TopCurrencies { get; set; }
+
+        public NewsCategoriesViewModel NewsCategoriesViewModel { get; set; }
+
+        public NewsCurrenciesViewModel() => NewsCategoriesViewModel = new NewsCategoriesViewModel();
     }
 }
