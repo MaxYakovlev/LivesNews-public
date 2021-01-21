@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-
-namespace uNews.Exstensions
+﻿namespace uNews.Exstensions
 {
     public static class TranslateMonthExstenstion
     {
@@ -79,7 +76,7 @@ namespace uNews.Exstensions
                 return datetime;
             }
 
-            throw new Exception("The input string does not contain the appropriate month year prefix");
+            return datetime;
         }
     }
 }

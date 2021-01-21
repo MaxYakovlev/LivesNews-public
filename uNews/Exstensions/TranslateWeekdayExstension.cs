@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace uNews.Exstensions
+﻿namespace uNews.Exstensions
 {
     public static class TranslateWeekdayExstension
     {
@@ -48,7 +46,7 @@ namespace uNews.Exstensions
                 return datetime;
             }
 
-            throw new Exception("The input string does not contain a suitable day of the week prefix");
+            return datetime;
         }
     }
 }
